@@ -1,0 +1,52 @@
+<UserControl x:Class="TestCrypto.Views.CoinMarketsTable"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:TestCrypto.ViewModels"
+        xmlns:convertors="clr-namespace:TestCrypto.Convertors"
+        mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewModels:CoinMarketViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
+        <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter"/>
+        <convertors:PercentageToFormattedStringAndColorConverter x:Key="PercentageToFormattedStringAndColorConverter"/>
+    </UserControl.Resources>
+   
+    <Grid>
+        <DataGrid ItemsSource="{Binding CoinMarkets}"
+                  AutoGenerateColumns="False" CanUserResizeColumns="False"
+                  CanUserResizeRows="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Name" Width="22*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Symbol}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Price" Width="15*"
+                                    Binding="{Binding CurrentPrice, 
+                                    Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                <DataGridTextColumn Header="Change" Width="10*"
+                                    Binding="{Binding PriceChangePercentage24H, 
+                                    Converter={StaticResource PercentageToFormattedStringAndColorConverter}}"/>
+                <DataGridTextColumn Header="Market Cap" Width="12*"
+                                    Binding="{Binding MarketCap, 
+                                    Converter={StaticResource NumberToFormattedStringConverter}}" />
+                <DataGridTextColumn Header="Volume" Width="12*"
+                                    Binding="{Binding TotalVolume, 
+                                    Converter={StaticResource NumberToFormattedStringConverter}}" />
+                <DataGridTextColumn Header="Supply" Width="12*"
+                                    Binding="{Binding TotalSupply, 
+                                    Converter={StaticResource NumberToFormattedStringConverter}}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
