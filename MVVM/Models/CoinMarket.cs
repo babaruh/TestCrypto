@@ -1,7 +1,6 @@
-using System.Windows.Media.Imaging;
 using Newtonsoft.Json;
 
-namespace TestCrypto.Models;
+namespace TestCrypto.MVVM.Models;
 
 public class CoinMarket
 {

@@ -1,7 +1,6 @@
 ﻿using System.Windows;
-using TestCrypto.ViewModels;
 
-namespace TestCrypto.Views;
+namespace TestCrypto.MVVM.Views;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
@@ -11,6 +10,5 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        DataContext = new MainWindowViewModel();
     }
 }

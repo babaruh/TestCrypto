@@ -1,0 +1,38 @@
+﻿<Window x:Class="TestCrypto.MVVM.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestCrypto"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <StackPanel Orientation="Horizontal" Margin="10,10,10,0">
+                <Image Source="../../Assets/archcrypto-logo.png" Width="30"/>
+                <TextBlock Text="Arch" FontSize="20" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="20,0">
+                <Button Content="Explore" Height="25" 
+                        Margin="0,10,0,0" 
+                        Command="{Binding NavigateExploreViewCommand}" />
+                <Button Content="Exchange" Height="25" 
+                        Margin="0,10,0,0"
+                        Command="{Binding NavigateExchangeViewCommand}" />
+                <Button Content="Settings" Height="25" Margin="0,10,0,0" 
+                        Command="{Binding NavigateSettingsViewCommand}" />
+                <Button Content="Support" Height="25" Margin="0,10,0,0" 
+                        Command="{Binding NavigateSupportViewCommand}" />
+            </StackPanel>
+        </StackPanel>
+           
+        <ContentControl Grid.Column="1" 
+                        Content="{Binding Navigation.CurrentView}">
+            
+        </ContentControl>
+    </Grid>
+</Window>

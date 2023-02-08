@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using TestCrypto.Models;
+using TestCrypto.MVVM.Models;
 
 namespace TestCrypto.Clients;
 
@@ -27,7 +27,7 @@ public class CoinGeckoClient
     public async Task<List<CoinMarket>> GetCoinMarkets(string vsCurrency)
     {
         return await GetCoinMarkets(vsCurrency,
-            Array.Empty<string>(), null, 100, new int?(), false, null, null).ConfigureAwait(false);
+            Array.Empty<string>(), null, new int(), new int?(), false, null, null).ConfigureAwait(false);
     }
 
     public async Task<List<CoinMarket>> GetCoinMarkets(
