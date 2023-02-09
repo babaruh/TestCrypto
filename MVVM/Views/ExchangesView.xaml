@@ -4,8 +4,41 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestCrypto"
+        xmlns:convertors="clr-namespace:TestCrypto.Convertors"
         mc:Ignorable="d">
+    <UserControl.Resources>
+        <convertors:DoubleToFormattedStringWithCommaConverter x:Key="DoubleToFormattedStringWithCommaConverter"/>
+    </UserControl.Resources>
+    
     <Grid>
-
+        <DataGrid ItemsSource="{Binding Exchanges}"
+                  AutoGenerateColumns="False" CanUserResizeColumns="False"
+                  CanUserResizeRows="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGrid_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Name" Width="15*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Text="{Binding Id}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Trade Volume in 24H Btc" Width="22*"
+                                    Binding="{Binding TradeVolume24HBtc, 
+                                    Converter={StaticResource DoubleToFormattedStringWithCommaConverter}}" />
+                <DataGridTextColumn Header="Trust Score" Width="7*"
+                                    Binding="{Binding TrustScore}" />
+                <DataGridTextColumn Header="Country" Width="10*"
+                                    Binding="{Binding Country}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>
