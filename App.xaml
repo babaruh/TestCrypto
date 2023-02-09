@@ -14,8 +14,8 @@
             <views:ExploreView />
         </DataTemplate>
         
-        <DataTemplate DataType="{x:Type viewModels:ExchangeViewModel}">
-            <views:ExchangeView />
+        <DataTemplate DataType="{x:Type viewModels:ExchangesViewModel}">
+            <views:ExchangesView />
         </DataTemplate>
         
         <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">

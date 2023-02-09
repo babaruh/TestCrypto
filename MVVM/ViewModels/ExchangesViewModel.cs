@@ -1,6 +1,6 @@
 namespace TestCrypto.MVVM.ViewModels;
 
-public class ExchangeViewModel : Core.ViewModel
+public class ExchangesViewModel : Core.ViewModel
 {
     
 }

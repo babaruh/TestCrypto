@@ -21,7 +21,7 @@ public partial class App : Application
         });
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<ExploreViewModel>();
-        services.AddSingleton<ExchangeViewModel>();
+        services.AddSingleton<ExchangesViewModel>();
         services.AddSingleton<SettingsViewModel>();
         services.AddSingleton<SupportViewModel>();
         services.AddSingleton<INavigationService, NavigationService>();

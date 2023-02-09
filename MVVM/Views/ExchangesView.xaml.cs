@@ -2,9 +2,9 @@
 
 namespace TestCrypto.MVVM.Views;
 
-public partial class SettingsView : UserControl
+public partial class ExchangesView : UserControl
 {
-    public SettingsView()
+    public ExchangesView()
     {
         InitializeComponent();
     }
