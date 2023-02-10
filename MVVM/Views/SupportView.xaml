@@ -4,8 +4,54 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestCrypto"
+        Width="600" Height="400"
         mc:Ignorable="d">
-    <Grid>
-
+    <Grid Margin="10">
+        <StackPanel Orientation="Vertical">
+            <TextBlock TextAlignment="Center" Margin="0 0 0 0"
+                       Text="Welcome to the ArchCrypto Support page!" />
+            <TextBlock TextAlignment="Center" Margin="0 5 0 0"
+                       Text="Update your app to latest version:" />
+            <TextBlock TextAlignment="Center">
+                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" TextDecorations=""
+                           NavigateUri="https://github.com/babaruh/TestCrypto">
+                    Github
+                </Hyperlink>
+            </TextBlock>
+            <StackPanel Margin="0 0 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>
+                        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate"
+                                   TextDecorations="" NavigateUri="https://mail.google.com">
+                            <Canvas Margin="-55 0 0 0">
+                                <Canvas>
+                                    <Ellipse Canvas.Left="0" Canvas.Top="0" Width="55" Height="55" Fill="#FF000000" StrokeThickness="0.0784772"/>
+                                </Canvas>
+                                <Canvas>
+                                    <Path Fill="#FFFFFFFF" StrokeThickness="0.0784772" Data="m 11.176642 12.432668 c -2.0796601 0 -3.7669302 1.687363 -3.7669302 3.766833 0 1.184921 0.5571908 2.299251 1.5067715 3.013467 L 25.99323 32.0202 c 0.894646 0.667056 2.118897 0.667056 3.013543 0 L 46.083518 19.212968 c 0.949584 -0.714216 1.506775 -1.828546 1.506775 -3.013467 0 -2.07947 -1.687271 -3.766833 -3.766933 -3.766833 z m -3.7669302 8.789178 v 16.323142 c 0 2.769957 2.2523093 5.022346 5.0225712 5.022346 H 42.56772 c 2.77026 0 5.022573 -2.252389 5.022573 -5.022346 V 21.221846 L 30.513541 34.02908 c -1.789287 1.342119 -4.237793 1.342119 -6.027084 0 z"/>
+                                </Canvas>
+                                <TextBlock Canvas.Left="-10" Canvas.Top="60" Text="Email Support" />
+                            </Canvas>
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <TextBlock>
+                    <Hyperlink TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate" 
+                               NavigateUri="https://learn.microsoft.com/en-us/dotnet/desktop/wpf">
+                        <Canvas Margin="70 0 0 0">
+                            <Ellipse Canvas.Left="0" Canvas.Top="0" Width="55" Height="55" Fill="#FF000000" StrokeThickness="0.0784771"/>
+                            <Canvas>
+                                <Canvas.RenderTransform>
+                                    <MatrixTransform Matrix="1.3295874 0 0 1.3295874 312.97765 -15.91123"/>
+                                </Canvas.RenderTransform>
+                                <Path Fill="#FFFFFFFF" StrokeThickness="0.0402814" Data="m -216.25826 41.482547 c 0.43504 0.153069 0.9023 -0.165153 0.9023 -0.62436 v -15.20216 c 0 -0.169181 -0.0644 -0.338363 -0.20141 -0.443095 -0.78951 -0.628387 -2.60217 -1.434013 -4.95459 -1.434013 -2.03421 0 -3.93549 0.535741 -5.07142 0.970779 -0.45518 0.177238 -0.72909 0.628387 -0.72909 1.115791 v 14.916163 c 0 0.479347 0.5156 0.813682 0.97078 0.664642 1.26886 -0.422954 3.2789 -0.910358 4.82973 -0.910358 1.36553 0 3.18222 0.563939 4.2537 0.946611 z m 3.0936 0 c 1.07149 -0.382672 2.88817 -0.946611 4.25371 -0.946611 1.55083 0 3.56086 0.487404 4.82973 0.910358 0.45517 0.153068 0.97077 -0.185295 0.97077 -0.664642 V 25.865489 c 0 -0.487404 -0.27391 -0.938553 -0.72909 -1.111763 -1.13593 -0.439066 -3.03721 -0.974807 -5.07141 -0.974807 -2.35243 0 -4.16509 0.805626 -4.9546 1.434013 -0.13293 0.104732 -0.20141 0.273914 -0.20141 0.443095 v 15.20216 c 0 0.459207 0.47129 0.777429 0.9023 0.62436 z"/>
+                            </Canvas>
+                            <TextBlock Canvas.Left="-15" Canvas.Top="60" Text="Knowledge base" />
+                        </Canvas>
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+        
     </Grid>
 </UserControl>

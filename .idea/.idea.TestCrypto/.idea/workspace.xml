@@ -12,6 +12,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c2a5ac5b8ebc930b1efe2036f446c3151084c79bab3c067f6d081f43bbd/Process.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/96c5f8609aa7b6a27dd6df566d77547d1c4d0caf5f4c8f166a8931264c9f/TextBlock.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,7 +67,9 @@
       <updated>1675876290516</updated>
       <workItem from="1675876291332" duration="124000" />
       <workItem from="1675877902315" duration="1743000" />
-      <workItem from="1675966119744" duration="317000" />
+      <workItem from="1675966119744" duration="3314000" />
+      <workItem from="1675972470507" duration="5634000" />
+      <workItem from="1676017528567" duration="153000" />
     </task>
     <servers />
   </component>
