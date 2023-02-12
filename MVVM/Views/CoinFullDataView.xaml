@@ -1,0 +1,147 @@
+﻿<UserControl x:Class="TestCrypto.MVVM.Views.CoinFullDataView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestCrypto"
+        xmlns:convertors="clr-namespace:TestCrypto.Convertors"
+        xmlns:models="clr-namespace:TestCrypto.MVVM.Models"
+        xmlns:viewModels="clr-namespace:TestCrypto.MVVM.ViewModels"
+        mc:Ignorable="d">
+    <UserControl.Resources>
+        <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
+        <convertors:PercentageToFormattedStringConvertor x:Key="PercentageToFormattedString"/>
+        <convertors:EmptyStringToCollapsedConverter x:Key="EmptyStringToCollapsedConverter" />
+        <convertors:EmptyArrayToCollapsedConverter x:Key="EmptyArrayToCollapsedConverter" />
+        <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter" />
+        <convertors:DecimalToFormattedPercentageStringConvertor x:Key="DecimalToFormattedPercentageStringConvertor" />
+    </UserControl.Resources>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <Grid Width="1270">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="7">
+            <TextBlock Text="{Binding CoinFullData.Name}" />
+            <TextBlock Text="{Binding CoinFullData.Symbol}" Margin="5 0 0 0"/>
+            <TextBlock Text="{Binding CoinFullData.MarketData.CurrentPrice[usd], 
+                       Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" 
+                       Margin="15 0 0 0"/>
+        </StackPanel>
+        <Border Grid.Row="1" BorderBrush="Black" 
+                BorderThickness="2" Margin="5 0">
+            <StackPanel>
+                <Border BorderBrush="Black" BorderThickness="0 0 0 2">
+                    <StackPanel>
+                        <StackPanel Margin="5">
+                            <TextBlock Text="Links" Margin="0 0 0 5"/>
+                            <StackPanel Orientation="Vertical" Margin="0 0 0 5">
+                                <TextBlock Text="Homepage: "/>
+                                <TextBlock>
+                                    <Hyperlink NavigateUri="{Binding CoinFullData.Links.Homepage[0]}"
+                                               RequestNavigate="Hyperlink_RequestNavigate">
+                                        <TextBlock Text="{Binding CoinFullData.Links.Homepage[0]}"/>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="0 0 0 5">
+                                <TextBlock Text="Subreddit Url: "/>
+                                <TextBlock>
+                                    <Hyperlink NavigateUri="{Binding CoinFullData.Links.SubredditUrl}"
+                                               RequestNavigate="Hyperlink_RequestNavigate">
+                                        <TextBlock Text="{Binding CoinFullData.Links.SubredditUrl}"/>
+                                    </Hyperlink>
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel>
+                            <Border BorderBrush="Black" BorderThickness="0 2 0 0">
+                                <TextBlock Text="Market stats" Padding="5"/>
+                            </Border>
+                            <Grid Margin="0 0 0 5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Market Cap:" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.MarketCap[usd], 
+                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Total Volume:" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.TotalVolume[usd], 
+                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Circulating Supply:" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.CirculatingSupply, 
+                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Popularity:" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketCapRank, 
+                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="All time high:" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.Ath[usd], 
+                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Price change (1h):" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.PriceChangePercentage24H, 
+                                               Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Price change (7d):" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.PriceChangePercentage7D, 
+                                               Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
+                                </StackPanel>
+                                <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="Price change (30d):" />
+                                    <TextBlock Text="{Binding CoinFullData.MarketData.PriceChangePercentage30D, 
+                                               Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
+                                </StackPanel>
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Margin="20 5">
+                            <TextBlock Text="Tickers" />
+                            <StackPanel>
+                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CoinFullData.Tickers}" >
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Width="2*" Header="Market Name" Binding="{Binding Market.Name}" />
+                                        <DataGridTextColumn Width="2*" Header="Last" Binding="{Binding Last, 
+                                                            Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                        <DataGridTextColumn Width="3*" Header="Volume" Binding="{Binding Volume, 
+                                                            Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                        <DataGridTextColumn Width="*" Header="Trust Score" Binding="{Binding TrustScore}" />
+                                        <DataGridTemplateColumn Width="*" Header="Trade URL">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Content="Open URL" Click="Button_Click">
+                                                        <Button.CommandParameter>
+                                                            <Binding Path="TradeUrl"/>
+                                                        </Button.CommandParameter>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </Grid>
+    </ScrollViewer>
+</UserControl>

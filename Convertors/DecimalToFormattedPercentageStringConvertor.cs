@@ -4,7 +4,7 @@ using System.Windows.Data;
 
 namespace TestCrypto.Convertors;
 
-public class PercentageToFormattedStringAndColorConverter : IValueConverter
+public class PercentageToFormattedStringConvertor : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {

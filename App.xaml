@@ -26,5 +26,9 @@
             <views:SupportView />
         </DataTemplate>
         
+        <DataTemplate DataType="{x:Type viewModels:CoinFullDataViewModel}">
+            <views:CoinFullDataView />
+        </DataTemplate>
+        
     </Application.Resources>
 </Application>

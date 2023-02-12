@@ -10,13 +10,13 @@
     <UserControl.Resources>
         <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
         <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter"/>
-        <convertors:PercentageToFormattedStringAndColorConverter x:Key="PercentageToFormattedStringAndColorConverter"/>
+        <convertors:PercentageToFormattedStringConvertor x:Key="PercentageToFormattedString"/>
     </UserControl.Resources>
    
     <Grid>
         <DataGrid ItemsSource="{Binding CoinMarkets}"
                   AutoGenerateColumns="False" CanUserResizeColumns="False"
-                  CanUserResizeRows="False" 
+                  CanUserResizeRows="False" MouseDoubleClick="DataGrid_DoubleClick"
                   CanUserAddRows="False" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name" Width="22*">
@@ -34,7 +34,7 @@
                                     Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                 <DataGridTextColumn Header="Change" Width="10*"
                                     Binding="{Binding PriceChangePercentage24H, 
-                                    Converter={StaticResource PercentageToFormattedStringAndColorConverter}}"/>
+                                    Converter={StaticResource PercentageToFormattedString}}"/>
                 <DataGridTextColumn Header="Market Cap" Width="12*"
                                     Binding="{Binding MarketCap, 
                                     Converter={StaticResource NumberToFormattedStringConverter}}" />

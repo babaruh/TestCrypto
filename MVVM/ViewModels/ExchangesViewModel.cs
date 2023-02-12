@@ -7,6 +7,7 @@ using System.Windows.Input;
 using Newtonsoft.Json;
 using TestCrypto.Clients.CoinGecko;
 using TestCrypto.MVVM.Models;
+using TestCrypto.Services;
 
 namespace TestCrypto.MVVM.ViewModels;
 
@@ -14,7 +15,7 @@ public class ExchangesViewModel : Core.ViewModel
 {
     private ObservableCollection<Exchange> _exchanges;
     private readonly ExchangesClient _exchangesClient;
-
+    
     public ObservableCollection<Exchange> Exchanges
     {
         get => _exchanges;

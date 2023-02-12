@@ -15,20 +15,30 @@ public partial class App : Application
     public App()
     {
         IServiceCollection services = new ServiceCollection();
-        services.AddSingleton<MainWindow>(provider => new MainWindow()
+        services.AddSingleton<MainWindow>(provider => new MainWindow
         {
             DataContext = provider.GetRequiredService<MainWindowViewModel>()
         });
         services.AddSingleton<MainWindowViewModel>();
         services.AddSingleton<ExploreViewModel>();
         services.AddSingleton<ExchangesViewModel>();
+        services.AddSingleton<CoinFullDataViewModel>();
         services.AddSingleton<SettingsViewModel>();
         services.AddSingleton<SupportViewModel>();
+        
+
         services.AddSingleton<INavigationService, NavigationService>();
 
-        services.AddSingleton<Func<Type, ViewModel>>(serviceProvider =>
-            viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));
+        services.AddSingleton<Func<Type, object, ViewModel>>(serviceProvider =>
+            (viewModelType, param) => 
+            {
+                if(param is null) return (ViewModel)ActivatorUtilities.CreateInstance(serviceProvider, viewModelType);
+                var stringParam = (string)param;
+                var viewModel = (ViewModel)ActivatorUtilities.CreateInstance(serviceProvider, viewModelType, stringParam);
+                return viewModel;
+            });
 
+        
         _serviceProvider = services.BuildServiceProvider();
     }
 

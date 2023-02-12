@@ -1,5 +1,6 @@
 using System;
 using TestCrypto.Core;
+using TestCrypto.MVVM.ViewModels;
 
 namespace TestCrypto.Services;
 
@@ -7,12 +8,13 @@ public interface INavigationService
 {
     ViewModel CurrentView { get; }
 
-    void NavigateTo<T>() where T : ViewModel;
+    void NavigateTo<TViewModel>() where TViewModel : ViewModel;
+    void NavigateTo<TViewModel>(object parameter) where TViewModel : ViewModel;
 }
 
 public class NavigationService : ObservableObject, INavigationService
 {
-    private readonly Func<Type, ViewModel> _viewModelFactory;
+    private readonly Func<Type, object?, ViewModel> _viewModelFactory;
     private ViewModel _currentView;
     
     public ViewModel CurrentView
@@ -25,14 +27,22 @@ public class NavigationService : ObservableObject, INavigationService
         }
     }
 
-    public NavigationService(Func<Type, ViewModel> viewModelFactory)
+    public NavigationService(Func<Type, object, ViewModel> viewModelFactory)
     {
         _viewModelFactory = viewModelFactory;
     }
-    
-    public void NavigateTo<TViewModel>() where TViewModel : ViewModel
+
+    public void NavigateTo<TViewModel>() 
+        where TViewModel : ViewModel
     {
-        var viewModel = _viewModelFactory.Invoke(typeof(TViewModel));
+        var viewModel = _viewModelFactory.Invoke(typeof(TViewModel), null);
+        CurrentView = viewModel;
+    }
+
+    public void NavigateTo<TViewModel>(object parameter) 
+        where TViewModel : ViewModel
+    {
+        var viewModel = _viewModelFactory.Invoke(typeof(TViewModel), parameter);
         CurrentView = viewModel;
     }
 }

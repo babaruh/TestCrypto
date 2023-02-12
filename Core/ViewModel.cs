@@ -1,6 +1,9 @@
 namespace TestCrypto.Core;
 
-public abstract class ViewModel : ObservableObject
+public class ViewModel : ObservableObject
 {
-    
+    public ViewModel()
+    {
+        
+    }
 }
