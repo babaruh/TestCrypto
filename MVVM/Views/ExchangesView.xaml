@@ -8,35 +8,76 @@
         mc:Ignorable="d">
     <UserControl.Resources>
         <convertors:DoubleToFormattedStringWithCommaConverter x:Key="DoubleToFormattedStringWithCommaConverter"/>
+        
+        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentColor}"/>
+            <Setter Property="Padding" Value="3,2,2,2"/>
+        </Style>
+        
+        <Style x:Key="CellStyle" TargetType="DataGridCell">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+        </Style>
+        
+        <Style x:Key="PrimaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+        
+        <Style x:Key="SecondaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <Style x:Key="DataGridStyle" TargetType="DataGrid">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="RowBackground" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{StaticResource SecondaryBackgroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="Padding" Value="10 0 0 0"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle}"/>
+        </Style>
+        
     </UserControl.Resources>
     
     <Grid>
-        <DataGrid ItemsSource="{Binding Exchanges}"
-                  AutoGenerateColumns="False" CanUserResizeColumns="False"
-                  CanUserResizeRows="False" 
-                  CanUserAddRows="False" CanUserDeleteRows="False">
-            <DataGrid.RowStyle>
-                <Style TargetType="{x:Type DataGridRow}">
-                    <EventSetter Event="MouseDoubleClick" Handler="DataGrid_MouseDoubleClick"/>
-                </Style>
-            </DataGrid.RowStyle>
-            <DataGrid.Columns>
+        <DataGrid ItemsSource="{Binding Exchanges}" 
+                  Style="{StaticResource DataGridStyle}" 
+                  MouseDoubleClick="DataGrid_MouseDoubleClick">
+        <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name" Width="15*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Name}" />
-                                <TextBlock Text="{Binding Id}" />
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource PrimaryTextStyle}"/>
+                                <TextBlock Text="{Binding Id}" Style="{StaticResource SecondaryTextStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Trade Volume in 24H Btc" Width="22*"
+                <DataGridTextColumn Header="Trade Volume in 24H Btc" Width="22*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TradeVolume24HBtc, 
                                     Converter={StaticResource DoubleToFormattedStringWithCommaConverter}}" />
-                <DataGridTextColumn Header="Trust Score" Width="7*"
+                <DataGridTextColumn Header="Trust Score" Width="7*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TrustScore}" />
-                <DataGridTextColumn Header="Country" Width="10*"
+                <DataGridTextColumn Header="Country" Width="10*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding Country}"/>
             </DataGrid.Columns>
         </DataGrid>

@@ -15,7 +15,7 @@ public class ExchangesClient : BaseApiClient
     {
     }
     
-    public async Task<IReadOnlyList<Exchange>> GetExchanges() => await GetExchanges(10, "").ConfigureAwait(false);
+    public async Task<IReadOnlyList<Exchange>> GetExchanges() => await GetExchanges(20, "").ConfigureAwait(false);
 
     public async Task<IReadOnlyList<Exchange>> GetExchanges(
         int perPage,

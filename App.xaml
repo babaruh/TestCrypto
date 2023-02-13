@@ -6,6 +6,14 @@
              xmlns:viewModels="clr-namespace:TestCrypto.MVVM.ViewModels">
     <Application.Resources>
         
+        <SolidColorBrush x:Key="BackgroundColor" Color="#282a36"/>
+        <SolidColorBrush x:Key="ForegroundColor" Color="#f8f8f2"/>
+        <SolidColorBrush x:Key="AccentColor" Color="#8f6fff"/>
+        <SolidColorBrush x:Key="SelectionColor" Color="#44475a"/>
+        <SolidColorBrush x:Key="HoverColor" Color="#6272a4"/>
+        <SolidColorBrush x:Key="SecondaryBackgroundColor" Color="#44475a"/>
+        <SolidColorBrush x:Key="SecondaryForegroundColor" Color="#6272a4"/>
+        
         <DataTemplate DataType="{x:Type viewModels:MainWindowViewModel}">
             <views:MainWindow />
         </DataTemplate>

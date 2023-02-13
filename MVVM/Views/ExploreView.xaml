@@ -3,45 +3,88 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestCrypto"
-        xmlns:viewModels="clr-namespace:TestCrypto.MVVM.ViewModels"
         xmlns:convertors="clr-namespace:TestCrypto.Convertors"
         mc:Ignorable="d">
     <UserControl.Resources>
         <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
         <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter"/>
         <convertors:PercentageToFormattedStringConvertor x:Key="PercentageToFormattedString"/>
+        
+        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentColor}"/>
+        </Style>
+        
+        <Style x:Key="CellStyle" TargetType="DataGridCell">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+        </Style>
+        
+        <Style x:Key="PrimaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+        
+        <Style x:Key="SecondaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <Style x:Key="DataGridStyle" TargetType="DataGrid">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="RowBackground" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{StaticResource SecondaryBackgroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle}"/>
+        </Style>
+        
     </UserControl.Resources>
    
     <Grid>
-        <DataGrid ItemsSource="{Binding CoinMarkets}"
-                  AutoGenerateColumns="False" CanUserResizeColumns="False"
-                  CanUserResizeRows="False" MouseDoubleClick="DataGrid_DoubleClick"
-                  CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid ItemsSource="{Binding CoinMarkets}" MouseDoubleClick="DataGrid_DoubleClick"
+                  Style="{StaticResource DataGridStyle}">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name" Width="22*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Name}" />
-                                <TextBlock Text="{Binding Symbol}" />
+                                <TextBlock Text="{Binding Name}" 
+                                           Style="{StaticResource PrimaryTextStyle}"/>
+                                <TextBlock Text="{Binding Symbol}" 
+                                           Style="{StaticResource SecondaryTextStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Price" Width="15*"
+                <DataGridTextColumn Header="Price" Width="15*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding CurrentPrice, 
                                     Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
-                <DataGridTextColumn Header="Change" Width="10*"
+                <DataGridTextColumn Header="Change" Width="10*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage24H, 
                                     Converter={StaticResource PercentageToFormattedString}}"/>
-                <DataGridTextColumn Header="Market Cap" Width="12*"
+                <DataGridTextColumn Header="Market Cap" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding MarketCap, 
                                     Converter={StaticResource NumberToFormattedStringConverter}}" />
-                <DataGridTextColumn Header="Volume" Width="12*"
+                <DataGridTextColumn Header="Volume" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TotalVolume, 
                                     Converter={StaticResource NumberToFormattedStringConverter}}" />
-                <DataGridTextColumn Header="Supply" Width="12*"
+                <DataGridTextColumn Header="Supply" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TotalSupply, 
                                     Converter={StaticResource NumberToFormattedStringConverter}}" />
             </DataGrid.Columns>

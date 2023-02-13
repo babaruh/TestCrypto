@@ -62,7 +62,7 @@ public class CoinsClient : BaseApiClient
     public async Task<List<CoinMarket>> GetCoinMarkets(string vsCurrency)
     {
         return await GetCoinMarkets(vsCurrency,
-            Array.Empty<string>(), null, 10, new int?(), false, null, null).ConfigureAwait(false);
+            Array.Empty<string>(), null, 20, new int?(), false, null, null).ConfigureAwait(false);
     }
 
     public async Task<List<CoinMarket>> GetCoinMarkets(
