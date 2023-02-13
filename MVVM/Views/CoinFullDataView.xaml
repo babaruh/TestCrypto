@@ -15,40 +15,107 @@
         <convertors:EmptyArrayToCollapsedConverter x:Key="EmptyArrayToCollapsedConverter" />
         <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter" />
         <convertors:DecimalToFormattedPercentageStringConvertor x:Key="DecimalToFormattedPercentageStringConvertor" />
+        
+        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="Foreground" Value="{StaticResource AccentColor}"/>
+        </Style>
+        
+        <Style x:Key="CellStyle" TargetType="DataGridCell">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Regular"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        
+        <Style x:Key="PrimaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
+        
+        <Style x:Key="SecondaryTextStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="FontFamily" Value="Nunito" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{StaticResource AccentColor}" />
+        </Style>
+        
+        <Style x:Key="DataGridStyle" TargetType="DataGrid">
+            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
+            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="RowBackground" Value="{StaticResource BackgroundColor}"/>
+            <Setter Property="AlternatingRowBackground" Value="{StaticResource SecondaryBackgroundColor}"/>
+            <Setter Property="FontFamily" Value="Nunito"/>
+            <Setter Property="GridLinesVisibility" Value="None"/>
+            <Setter Property="FontWeight" Value="Thin"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserResizeRows" Value="False"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle}"/>
+        </Style>
+        
     </UserControl.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid Width="1270">
+    <Grid Width="1270" Background="{StaticResource BackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="7">
-            <TextBlock Text="{Binding CoinFullData.Name}" />
-            <TextBlock Text="{Binding CoinFullData.Symbol}" Margin="5 0 0 0"/>
+            <TextBlock Text="{Binding CoinFullData.Name}" 
+                       Style="{StaticResource PrimaryTextStyle}" FontWeight="Bold"/>
+            <TextBlock Text="{Binding CoinFullData.Symbol}" 
+                       Style="{StaticResource SecondaryTextStyle}" Margin="5 0 0 0"/>
+            
+            <TextBlock Text="Price: " Margin="20 0 0 0" FontWeight="Bold" Style="{StaticResource PrimaryTextStyle}"/>
             <TextBlock Text="{Binding CoinFullData.MarketData.CurrentPrice[usd], 
                        Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" 
-                       Margin="15 0 0 0"/>
+                       Style="{StaticResource PrimaryTextStyle}"
+                       Margin="0"/>
         </StackPanel>
-        <Border Grid.Row="1" BorderBrush="Black" 
+        <Border Grid.Row="1" BorderBrush="{StaticResource SecondaryForegroundColor}" 
                 BorderThickness="2" Margin="5 0">
             <StackPanel>
                 <Border BorderBrush="Black" BorderThickness="0 0 0 2">
                     <StackPanel>
                         <StackPanel Margin="5">
-                            <TextBlock Text="Links" Margin="0 0 0 5"/>
+                            <TextBlock Text="Links" Margin="0 0 0 5" FontWeight="Bold"
+                                       Style="{StaticResource PrimaryTextStyle}"/>
                             <StackPanel Orientation="Vertical" Margin="0 0 0 5">
-                                <TextBlock Text="Homepage: "/>
-                                <TextBlock>
-                                    <Hyperlink NavigateUri="{Binding CoinFullData.Links.Homepage[0]}"
+                                <TextBlock Text="Homepage: " Style="{StaticResource PrimaryTextStyle}"/>
+                                <TextBlock Style="{StaticResource PrimaryTextStyle}">
+                                    <Hyperlink TextDecorations="" 
+                                               NavigateUri="{Binding CoinFullData.Links.Homepage[0]}"
                                                RequestNavigate="Hyperlink_RequestNavigate">
                                         <TextBlock Text="{Binding CoinFullData.Links.Homepage[0]}"/>
                                     </Hyperlink>
                                 </TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Margin="0 0 0 5">
-                                <TextBlock Text="Subreddit Url: "/>
-                                <TextBlock>
-                                    <Hyperlink NavigateUri="{Binding CoinFullData.Links.SubredditUrl}"
+                                <TextBlock Text="Subreddit Url: " Style="{StaticResource PrimaryTextStyle}"/>
+                                <TextBlock Style="{StaticResource PrimaryTextStyle}">
+                                    <Hyperlink TextDecorations="" 
+                                               NavigateUri="{Binding CoinFullData.Links.SubredditUrl}"
                                                RequestNavigate="Hyperlink_RequestNavigate">
                                         <TextBlock Text="{Binding CoinFullData.Links.SubredditUrl}"/>
                                     </Hyperlink>
@@ -56,8 +123,10 @@
                             </StackPanel>
                         </StackPanel>
                         <StackPanel>
-                            <Border BorderBrush="Black" BorderThickness="0 2 0 0">
-                                <TextBlock Text="Market stats" Padding="5"/>
+                            <Border BorderBrush="{StaticResource SecondaryBackgroundColor}" 
+                                    BorderThickness="0 2 0 0">
+                                <TextBlock Style="{StaticResource PrimaryTextStyle}" FontWeight="Bold"
+                                           Text="Market stats" Padding="5"/>
                             </Border>
                             <Grid Margin="0 0 0 5">
                                 <Grid.RowDefinitions>
@@ -71,62 +140,75 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
                                 <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Market Cap:" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.MarketCap[usd], 
+                                    <TextBlock Text="Market Cap:" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.MarketCap[usd], 
                                                Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Total Volume:" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.TotalVolume[usd], 
+                                    <TextBlock Text="Total Volume:" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.TotalVolume[usd], 
                                                Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Circulating Supply:" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.CirculatingSupply, 
+                                    <TextBlock Text="Circulating Supply:" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.CirculatingSupply, 
                                                Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Popularity:" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketCapRank, 
+                                    <TextBlock Text="Popularity:" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketCapRank, 
                                                Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="All time high:" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.Ath[usd], 
+                                    <TextBlock Text="All time high:" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.Ath[usd], 
                                                Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Price change (1h):" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.PriceChangePercentage24H, 
+                                    <TextBlock Text="Price change (1h):" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.PriceChangePercentage24H, 
                                                Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Price change (7d):" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.PriceChangePercentage7D, 
+                                    <TextBlock Text="Price change (7d):" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.PriceChangePercentage7D, 
                                                Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" Margin="5">
-                                    <TextBlock Text="Price change (30d):" />
-                                    <TextBlock Text="{Binding CoinFullData.MarketData.PriceChangePercentage30D, 
+                                    <TextBlock Text="Price change (30d):" Style="{StaticResource PrimaryTextStyle}" />
+                                    <TextBlock Style="{StaticResource PrimaryTextStyle}" 
+                                               Text="{Binding CoinFullData.MarketData.PriceChangePercentage30D, 
                                                Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
                         <StackPanel Margin="20 5">
-                            <TextBlock Text="Tickers" />
+                            <TextBlock Text="Tickers"  Style="{StaticResource PrimaryTextStyle}" FontWeight="Bold"/>
                             <StackPanel>
-                                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding CoinFullData.Tickers}" >
+                                <DataGrid Style="{StaticResource DataGridStyle}" 
+                                          ItemsSource="{Binding CoinFullData.Tickers}" >
                                     <DataGrid.Columns>
-                                        <DataGridTextColumn Width="2*" Header="Market Name" Binding="{Binding Market.Name}" />
-                                        <DataGridTextColumn Width="2*" Header="Last" Binding="{Binding Last, 
+                                        <DataGridTextColumn CellStyle="{StaticResource CellStyle}" 
+                                                            Width="2*" Header="Market Name" Binding="{Binding Market.Name}" />
+                                        <DataGridTextColumn CellStyle="{StaticResource CellStyle}" 
+                                                            Width="2*" Header="Last" Binding="{Binding Last, 
                                                             Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
-                                        <DataGridTextColumn Width="3*" Header="Volume" Binding="{Binding Volume, 
+                                        <DataGridTextColumn CellStyle="{StaticResource CellStyle}" 
+                                                            Width="3*" Header="Volume" Binding="{Binding Volume, 
                                                             Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                         <DataGridTextColumn Width="*" Header="Trust Score" Binding="{Binding TrustScore}" />
                                         <DataGridTemplateColumn Width="*" Header="Trade URL">
                                             <DataGridTemplateColumn.CellTemplate>
                                                 <DataTemplate>
-                                                    <Button Content="Open URL" Click="Button_Click">
+                                                    <Button Style="{StaticResource ButtonStyle}" 
+                                                            Content="Open URL" Click="Button_Click">
                                                         <Button.CommandParameter>
                                                             <Binding Path="TradeUrl"/>
                                                         </Button.CommandParameter>

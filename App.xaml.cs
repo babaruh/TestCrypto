@@ -23,7 +23,6 @@ public partial class App : Application
         services.AddSingleton<ExploreViewModel>();
         services.AddSingleton<ExchangesViewModel>();
         services.AddSingleton<CoinFullDataViewModel>();
-        services.AddSingleton<SettingsViewModel>();
         services.AddSingleton<SupportViewModel>();
         
 
