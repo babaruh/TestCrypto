@@ -45,8 +45,6 @@
                         Command="{Binding NavigateExploreViewCommand}" />
                 <Button Content="Exchange" Style="{StaticResource NavigationButton}"
                         Command="{Binding NavigateExchangeViewCommand}" />
-                <Button Content="Settings" Style="{StaticResource NavigationButton}"
-                        Command="{Binding NavigateSettingsViewCommand}" />
                 <Button Content="Support" Style="{StaticResource NavigationButton}"
                         Command="{Binding NavigateSupportViewCommand}" />
             </StackPanel>

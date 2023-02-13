@@ -4,7 +4,10 @@
     <projectFile>TestCrypto.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52003ff2-9b7b-40a5-bb93-48250cc3403f" name="Changes" comment="" />
+    <list default="true" id="52003ff2-9b7b-40a5-bb93-48250cc3403f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestCrypto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestCrypto/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,20 +15,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/obj/Debug/net7.0-windows/MVVM/Views/CoinFullDataView.g.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2befa62c21c14a918916e4a7d9e1ce75b1c8a8/b5/b5de293c/Func`2.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/0f1f87a17c797c7aefb5c86e8db586a9951c8e58b31f2c42ba39dd51ffa0/CallSiteFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c2a5ac5b8ebc930b1efe2036f446c3151084c79bab3c067f6d081f43bbd/Process.Windows.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5932ffe9f79a64df604e89e4fc84584d43d5df264cc9e342be7643b9d57cd935/Delegate.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5939cc1db917894f431a56f3c68e6bef1ade5c56e1cc94de5f14d5305d7e2af3/InvalidOperationException.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5a797ca92a578f6e5ea8cf99e224acee2df4fb7cfbfb0ed1f34a1685a4ddae4/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7aed2c62c90f1b5e7b55ee22aec89b7cdd1fd50d5e08545317c76e42e2dd0/Shape.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7c1ab578e66a1b766b609c418417d9320b7743bbc9065d1639c5b570c87d3/DependencyObject.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/96c5f8609aa7b6a27dd6df566d77547d1c4d0caf5f4c8f166a8931264c9f/TextBlock.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9f535253597dc73165d33550c23edc02f9239e97075d6c42772e7c8d9f6833/WpfXamlLoader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a9b35bc5d5da43a49af8d74dac7ab37ccc1bb654cb7dfe8f9a21501181ed9b/CastHelpers.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b2e2569a599c90377c1a97627ad8774b6db45b50adadbf7ef077d29896d719/RuntimeHelpers.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c5d0892e96f92bbc034d4b1d6e3437492fbae1f3192cfcefe1efb21813988b/ActivatorUtilities.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -35,21 +24,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\sova\\scoop\\apps\\rider\\current\\profile\\config\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\sova\\scoop\\apps\\rider\\current\\profile\\config\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\sova\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/home/sova/.config/JetBrains/Rider2022.3/resharper-host/DecompilerCache",
+      "/home/sova/.config/JetBrains/Rider2022.3/resharper-host/SourcesCache",
+      "/home/sova/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="TestCrypto" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -86,7 +75,8 @@
       <workItem from="1676211302392" duration="6426000" />
       <workItem from="1676221463949" duration="29360000" />
       <workItem from="1676252421110" duration="490000" />
-      <workItem from="1676272958089" duration="3643000" />
+      <workItem from="1676272958089" duration="4232000" />
+      <workItem from="1676285408270" duration="17000" />
     </task>
     <servers />
   </component>
