@@ -14,7 +14,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/obj/Debug/net7.0-windows/MVVM/Views/CoinFullDataView.g.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c2a5ac5b8ebc930b1efe2036f446c3151084c79bab3c067f6d081f43bbd/Process.Windows.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5a797ca92a578f6e5ea8cf99e224acee2df4fb7cfbfb0ed1f34a1685a4ddae4/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -24,21 +25,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/home/sova/.config/JetBrains/Rider2022.3/resharper-host/DecompilerCache",
-      "/home/sova/.config/JetBrains/Rider2022.3/resharper-host/SourcesCache",
-      "/home/sova/.local/share/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\sova\\scoop\\apps\\rider\\current\\profile\\config\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\sova\\scoop\\apps\\rider\\current\\profile\\config\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\sova\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="TestCrypto" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -77,6 +79,9 @@
       <workItem from="1676252421110" duration="490000" />
       <workItem from="1676272958089" duration="4232000" />
       <workItem from="1676285408270" duration="17000" />
+      <workItem from="1677943976053" duration="6109000" />
+      <workItem from="1677950471930" duration="4126000" />
+      <workItem from="1677955442826" duration="308000" />
     </task>
     <servers />
   </component>

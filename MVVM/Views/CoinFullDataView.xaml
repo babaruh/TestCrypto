@@ -10,73 +10,11 @@
         mc:Ignorable="d">
     <UserControl.Resources>
         <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
-        <convertors:PercentageToFormattedStringConvertor x:Key="PercentageToFormattedString"/>
-        <convertors:EmptyStringToCollapsedConverter x:Key="EmptyStringToCollapsedConverter" />
-        <convertors:EmptyArrayToCollapsedConverter x:Key="EmptyArrayToCollapsedConverter" />
-        <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter" />
         <convertors:DecimalToFormattedPercentageStringConvertor x:Key="DecimalToFormattedPercentageStringConvertor" />
-        
-        <Style x:Key="ColumnHeaderStyle" TargetType="DataGridColumnHeader">
-            <Setter Property="Height" Value="27"/>
-            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
-            <Setter Property="Foreground" Value="{StaticResource AccentColor}"/>
-        </Style>
-        
-        <Style x:Key="CellStyle" TargetType="DataGridCell">
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
-            <Setter Property="FontFamily" Value="Nunito"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontWeight" Value="Regular"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Margin" Value="0"/>
-            <Setter Property="Padding" Value="0"/>
-        </Style>
-        
-        <Style x:Key="PrimaryTextStyle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
-            <Setter Property="FontFamily" Value="Nunito"/>
-            <Setter Property="FontSize" Value="17"/>
-        </Style>
-        
-        <Style x:Key="SecondaryTextStyle" TargetType="TextBlock">
-            <Setter Property="Foreground" Value="{StaticResource SecondaryForegroundColor}"/>
-            <Setter Property="FontFamily" Value="Nunito"/>
-            <Setter Property="FontWeight" Value="Thin"/>
-            <Setter Property="FontSize" Value="16"/>
-        </Style>
-        
-        <Style TargetType="Button" x:Key="ButtonStyle">
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="HorizontalAlignment" Value="Stretch" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="FontFamily" Value="Nunito" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="{StaticResource AccentColor}" />
-        </Style>
-        
-        <Style x:Key="DataGridStyle" TargetType="DataGrid">
-            <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
-            <Setter Property="Background" Value="{StaticResource BackgroundColor}"/>
-            <Setter Property="RowBackground" Value="{StaticResource BackgroundColor}"/>
-            <Setter Property="AlternatingRowBackground" Value="{StaticResource SecondaryBackgroundColor}"/>
-            <Setter Property="FontFamily" Value="Nunito"/>
-            <Setter Property="GridLinesVisibility" Value="None"/>
-            <Setter Property="FontWeight" Value="Thin"/>
-            <Setter Property="FontSize" Value="17"/>
-            <Setter Property="AutoGenerateColumns" Value="False"/>
-            <Setter Property="CanUserAddRows" Value="False"/>
-            <Setter Property="CanUserResizeColumns" Value="False"/>
-            <Setter Property="CanUserDeleteRows" Value="False"/>
-            <Setter Property="CanUserResizeRows" Value="False"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="RowHeaderWidth" Value="0"/>
-            <Setter Property="ColumnHeaderStyle" Value="{StaticResource ColumnHeaderStyle}"/>
-        </Style>
-        
     </UserControl.Resources>
+    
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid Width="1270" Background="{StaticResource BackgroundColor}">
+        <Grid Width="1270" Background="{StaticResource BackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -87,7 +25,8 @@
             <TextBlock Text="{Binding CoinFullData.Symbol}" 
                        Style="{StaticResource SecondaryTextStyle}" Margin="5 0 0 0"/>
             
-            <TextBlock Text="Price: " Margin="20 0 0 0" FontWeight="Bold" Style="{StaticResource PrimaryTextStyle}"/>
+            <TextBlock Text="Price: " Margin="20 0 0 0" FontWeight="Bold" 
+                       Style="{StaticResource PrimaryTextStyle}"/>
             <TextBlock Text="{Binding CoinFullData.MarketData.CurrentPrice[usd], 
                        Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" 
                        Style="{StaticResource PrimaryTextStyle}"
