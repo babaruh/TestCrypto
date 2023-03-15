@@ -18,30 +18,16 @@
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="0">
-            <TextBox Style="{StaticResource SearchbarStyle}" x:Name="searchBox"
+            <TextBox Style="{StaticResource SearchbarStyle}" x:Name="SearchBox"
                      Margin="5">
                 <TextBox.InputBindings>
                     <KeyBinding Gesture="Enter" 
                                         Command="{Binding NavigateCoinFullDataViewCommand}"
-                                        CommandParameter="{Binding Text, ElementName=searchBox}" />
+                                        CommandParameter="{Binding Text, ElementName=SearchBox}" />
                 </TextBox.InputBindings>
             </TextBox>
-            <TextBlock IsHitTestVisible="False" Text="Search by name (for example, bitcoin)" 
-                       VerticalAlignment="Center" Margin="10,0,0,0">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
-                        <Setter Property="FontFamily" Value="Nunito"/>
-                        <Setter Property="FontSize" Value="17"/>
-                        <Setter Property="Visibility" Value="Collapsed"/>
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=SearchTermTextBox}" Value="">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
+            <TextBox Text="Search by name (for example, bitcoin)" 
+                       Style="{StaticResource SearchBoxWaterMarkStyle}" />
         </Grid>        
         
         <DataGrid Grid.Row="1" ItemsSource="{Binding CoinMarkets}" 

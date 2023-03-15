@@ -13,7 +13,7 @@
         <convertors:DecimalToFormattedPercentageStringConvertor x:Key="DecimalToFormattedPercentageStringConvertor" />
     </UserControl.Resources>
     
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    
         <Grid Width="1270" Background="{StaticResource BackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -159,5 +159,4 @@
             </StackPanel>
         </Border>
     </Grid>
-    </ScrollViewer>
 </UserControl>
