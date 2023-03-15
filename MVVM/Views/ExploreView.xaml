@@ -18,8 +18,14 @@
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="0">
-            <TextBox Style="{StaticResource SearchbarStyle}" 
-                     x:Name="SearchTermTextBox" KeyDown="TextBox_KeyDown" Margin="5"/>
+            <TextBox Style="{StaticResource SearchbarStyle}" x:Name="searchBox"
+                     Margin="5">
+                <TextBox.InputBindings>
+                    <KeyBinding Gesture="Enter" 
+                                        Command="{Binding NavigateCoinFullDataViewCommand}"
+                                        CommandParameter="{Binding Text, ElementName=searchBox}" />
+                </TextBox.InputBindings>
+            </TextBox>
             <TextBlock IsHitTestVisible="False" Text="Search by name (for example, bitcoin)" 
                        VerticalAlignment="Center" Margin="10,0,0,0">
                 <TextBlock.Style>
@@ -38,8 +44,14 @@
             </TextBlock>
         </Grid>        
         
-        <DataGrid Grid.Row="1" ItemsSource="{Binding CoinMarkets}" MouseDoubleClick="DataGrid_DoubleClick"
+        <DataGrid Grid.Row="1" ItemsSource="{Binding CoinMarkets}" 
+                  SelectedItem="{Binding SelectedCoinMarket}"
                   Style="{StaticResource DataGridStyle}">
+            <DataGrid.InputBindings>
+                <MouseBinding Command="{Binding NavigateCoinFullDataViewCommand}" 
+                              CommandParameter="{Binding SelectedCoinMarket.Id}" 
+                              MouseAction="LeftDoubleClick"/>
+            </DataGrid.InputBindings>
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name" Width="22*">
                     <DataGridTemplateColumn.CellTemplate>

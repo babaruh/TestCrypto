@@ -15,8 +15,8 @@
                        Style="{StaticResource PrimaryTextStyle}"
                        Text="Update your app to latest version:" />
             <TextBlock TextAlignment="Center" Style="{DynamicResource PrimaryTextStyle}">
-                <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" 
-                           NavigateUri="https://github.com/babaruh/TestCrypto"
+                <Hyperlink Command="{Binding OpenLinkCommand}" 
+                           CommandParameter="{Binding GithubUrl}"
                            TextDecorations="">
                     Github
                 </Hyperlink>
@@ -24,8 +24,9 @@
             <StackPanel Margin="0 0 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>
-                        <Hyperlink RequestNavigate="Hyperlink_RequestNavigate"
-                                   TextDecorations="" NavigateUri="https://mail.google.com">
+                        <Hyperlink Command="{Binding OpenLinkCommand}"
+                                   CommandParameter="{Binding MailUrl}"
+                                   TextDecorations="">
                             <Canvas Margin="-55 0 0 0">
                                 <Canvas>
                                     <Ellipse Canvas.Left="0" Canvas.Top="0" 
@@ -44,8 +45,8 @@
                     </TextBlock>
                 </StackPanel>
                 <TextBlock>
-                    <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" TextDecorations=""
-                               NavigateUri="https://learn.microsoft.com/en-us/dotnet/desktop/wpf">
+                    <Hyperlink Command="{Binding OpenLinkCommand}" TextDecorations=""
+                               CommandParameter="{Binding LearnWpfUrl}">
                         <Canvas Margin="70 0 0 0">
                             <Ellipse Canvas.Left="0" Canvas.Top="0" 
                                      Width="55" Height="55" 

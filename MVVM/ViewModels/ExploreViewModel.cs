@@ -2,6 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Newtonsoft.Json;
 using TestCrypto.Clients;
@@ -16,7 +17,10 @@ namespace TestCrypto.MVVM.ViewModels;
 public class ExploreViewModel : Core.ViewModel
 {
     private readonly CoinsClient _coinsClient;
+    private INavigationService _navigation;
     private ObservableCollection<CoinMarket> _coinMarkets;
+    private CoinMarket _selectedCoinMarket;
+
     public ObservableCollection<CoinMarket> CoinMarkets
     {
         get => _coinMarkets;
@@ -27,34 +31,44 @@ public class ExploreViewModel : Core.ViewModel
         }
     }
 
-    private INavigationService _navigation;
+    public CoinMarket SelectedCoinMarket
+    {
+        get => _selectedCoinMarket;
+        set
+        {
+            _selectedCoinMarket = value;
+            OnPropertyChanged();
+        }
+    }
 
     public INavigationService Navigation
     {
         get => _navigation;
-        set
+        private set
         {
             _navigation = value;
             OnPropertyChanged();
         }
     }
     
-    public RelayCommand NavigateCoinFullDataViewCommand { get; set; }
+    public ICommand NavigateCoinFullDataViewCommand { get; set; }
 
     public ExploreViewModel(INavigationService navigation)
     {
         Navigation = navigation;
         NavigateCoinFullDataViewCommand = 
-            new RelayCommand(ShowDetailExecute, o => true); 
+            new RelayCommand(NavigateCoinFullDataView, _ => true); 
         
         _coinsClient = new CoinsClient(new HttpClient(), new JsonSerializerSettings());
         _coinMarkets = new ObservableCollection<CoinMarket>();
         LoadCoinMarkets();
     }
     
-    private void ShowDetailExecute(object? parameter)
+    private void NavigateCoinFullDataView(object parameter)
     {
-        var id = (string)parameter;
+        if (parameter is not string id)
+            return;
+
         Navigation.NavigateTo<CoinFullDataViewModel>(id);
     }
     
@@ -62,9 +76,7 @@ public class ExploreViewModel : Core.ViewModel
     {
         var cryptoCurrencies = await _coinsClient.GetCoinMarkets("usd");
     
-        foreach (var currency in cryptoCurrencies)
-        {
+        foreach (var currency in cryptoCurrencies) 
             CoinMarkets.Add(currency);
-        }
     }
 }

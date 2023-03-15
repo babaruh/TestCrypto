@@ -12,9 +12,14 @@
     
     <Grid>
         <DataGrid ItemsSource="{Binding Exchanges}" 
-                  Style="{StaticResource DataGridStyle}" 
-                  MouseDoubleClick="DataGrid_MouseDoubleClick">
-        <DataGrid.Columns>
+                  SelectedItem="{Binding SelectedExchange}"
+                  Style="{StaticResource DataGridStyle}">
+            <DataGrid.InputBindings>
+                <MouseBinding Command="{Binding OpenLinkCommand}" 
+                              CommandParameter="{Binding SelectedExchange.Url}" 
+                              MouseAction="LeftDoubleClick"/>
+            </DataGrid.InputBindings>
+            <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name" Width="15*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

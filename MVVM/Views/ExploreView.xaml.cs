@@ -8,20 +8,8 @@ namespace TestCrypto.MVVM.Views;
 
 public partial class ExploreView : UserControl
 {
-    public ExploreView()
-    {
+    public ExploreView() => 
         InitializeComponent();
-    }
-
-    private void DataGrid_DoubleClick(object sender, RoutedEventArgs e)
-    {
-        var dataGrid = sender as DataGrid;
-        if (dataGrid?.SelectedItem is not CoinMarket item) return;
-        
-        var id = item.Id;
-        var viewModel = DataContext as ExploreViewModel;
-        viewModel?.NavigateCoinFullDataViewCommand.Execute(id);
-    }
 
     private void TextBox_KeyDown(object sender, KeyEventArgs e)
     {
@@ -31,9 +19,8 @@ public partial class ExploreView : UserControl
         if(string.IsNullOrWhiteSpace(textBox?.Text)) return;
         
         var text = textBox.Text;
-        
-        var id = text;
+
         var viewModel = DataContext as ExploreViewModel;
-        viewModel?.NavigateCoinFullDataViewCommand.Execute(id);
+        viewModel?.NavigateCoinFullDataViewCommand.Execute(text);
     }
 }

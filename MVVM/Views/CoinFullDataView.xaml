@@ -44,8 +44,8 @@
                                 <TextBlock Text="Homepage: " Style="{StaticResource PrimaryTextStyle}"/>
                                 <TextBlock Style="{StaticResource PrimaryTextStyle}">
                                     <Hyperlink TextDecorations="" 
-                                               NavigateUri="{Binding CoinFullData.Links.Homepage[0]}"
-                                               RequestNavigate="Hyperlink_RequestNavigate">
+                                               CommandParameter="{Binding CoinFullData.Links.Homepage[0]}"
+                                               Command="{Binding OpenLinkCommand}">
                                         <TextBlock Text="{Binding CoinFullData.Links.Homepage[0]}"/>
                                     </Hyperlink>
                                 </TextBlock>
@@ -54,8 +54,8 @@
                                 <TextBlock Text="Subreddit Url: " Style="{StaticResource PrimaryTextStyle}"/>
                                 <TextBlock Style="{StaticResource PrimaryTextStyle}">
                                     <Hyperlink TextDecorations="" 
-                                               NavigateUri="{Binding CoinFullData.Links.SubredditUrl}"
-                                               RequestNavigate="Hyperlink_RequestNavigate">
+                                               CommandParameter="{Binding CoinFullData.Links.SubredditUrl}"
+                                               Command="{Binding OpenLinkCommand}">
                                         <TextBlock Text="{Binding CoinFullData.Links.SubredditUrl}"/>
                                     </Hyperlink>
                                 </TextBlock>
@@ -132,7 +132,13 @@
                             <TextBlock Text="Tickers"  Style="{StaticResource PrimaryTextStyle}" FontWeight="Bold"/>
                             <StackPanel>
                                 <DataGrid Style="{StaticResource DataGridStyle}" 
+                                          SelectedItem="{Binding SelectedTicker}"
                                           ItemsSource="{Binding CoinFullData.Tickers}" >
+                                    <DataGrid.InputBindings>
+                                        <MouseBinding MouseAction="LeftDoubleClick"
+                                                      Command="{Binding OpenLinkCommand}"
+                                                      CommandParameter="{Binding SelectedTicker.TradeUrl}"/>
+                                    </DataGrid.InputBindings>
                                     <DataGrid.Columns>
                                         <DataGridTextColumn CellStyle="{StaticResource CellStyle}" 
                                                             Width="2*" Header="Market Name" Binding="{Binding Market.Name}" />
@@ -143,19 +149,8 @@
                                                             Width="3*" Header="Volume" Binding="{Binding Volume, 
                                                             Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                                         <DataGridTextColumn Width="*" Header="Trust Score" Binding="{Binding TrustScore}" />
-                                        <DataGridTemplateColumn Width="*" Header="Trade URL">
-                                            <DataGridTemplateColumn.CellTemplate>
-                                                <DataTemplate>
-                                                    <Button Style="{StaticResource ButtonStyle}" 
-                                                            Content="Open URL" Click="Button_Click">
-                                                        <Button.CommandParameter>
-                                                            <Binding Path="TradeUrl"/>
-                                                        </Button.CommandParameter>
-                                                    </Button>
-                                                </DataTemplate>
-                                            </DataGridTemplateColumn.CellTemplate>
-                                        </DataGridTemplateColumn>
                                     </DataGrid.Columns>
+                                    
                                 </DataGrid>
                             </StackPanel>
                         </StackPanel>

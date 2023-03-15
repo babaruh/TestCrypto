@@ -1,3 +1,4 @@
+using System.Windows.Input;
 using TestCrypto.Core;
 using TestCrypto.Services;
 
@@ -17,9 +18,9 @@ public class MainWindowViewModel : Core.ViewModel
         }
     }
 
-    public RelayCommand NavigateExploreViewCommand { get; set; }
-    public RelayCommand NavigateExchangeViewCommand { get; set; }
-    public RelayCommand NavigateSupportViewCommand { get; set; }
+    public ICommand NavigateExploreViewCommand { get; set; }
+    public ICommand NavigateExchangeViewCommand { get; set; }
+    public ICommand NavigateSupportViewCommand { get; set; }
 
     public MainWindowViewModel(INavigationService navigationService)
     {

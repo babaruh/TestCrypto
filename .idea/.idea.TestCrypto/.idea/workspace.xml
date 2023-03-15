@@ -6,7 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="52003ff2-9b7b-40a5-bb93-48250cc3403f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestCrypto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestCrypto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/ViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Core/ViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/CoinFullDataViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/ViewModels/CoinFullDataViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/ExchangesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/ViewModels/ExchangesViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/ExploreViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/ViewModels/ExploreViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/MainWindowViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/ViewModels/MainWindowViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/SupportViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/ViewModels/SupportViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/CoinFullDataView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/CoinFullDataView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/CoinFullDataView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/CoinFullDataView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExchangesView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/ExchangesView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExchangesView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/ExchangesView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/SupportView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/SupportView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/SupportView.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/SupportView.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +31,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c2a5ac5b8ebc930b1efe2036f446c3151084c79bab3c067f6d081f43bbd/Process.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5a797ca92a578f6e5ea8cf99e224acee2df4fb7cfbfb0ed1f34a1685a4ddae4/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -31,13 +47,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\sova\\scoop\\apps\\rider\\current\\profile\\config\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\sova\\scoop\\apps\\rider\\current\\profile\\config\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\sova\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\hotso\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\hotso\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\hotso\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -82,6 +99,12 @@
       <workItem from="1677943976053" duration="6109000" />
       <workItem from="1677950471930" duration="4126000" />
       <workItem from="1677955442826" duration="308000" />
+      <workItem from="1678386348072" duration="6157000" />
+      <workItem from="1678559429570" duration="1010000" />
+      <workItem from="1678560515789" duration="2912000" />
+      <workItem from="1678635187490" duration="6540000" />
+      <workItem from="1678651520422" duration="1207000" />
+      <workItem from="1678882445683" duration="2855000" />
     </task>
     <servers />
   </component>
@@ -91,5 +114,24 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/MVVM/ViewModels/CoinFullDataViewModel.cs</url>
+          <line>57</line>
+          <properties documentPath="C:\Users\hotso\RiderProjects\TestCrypto\MVVM\ViewModels\CoinFullDataViewModel.cs" initialLine="57" containingFunctionPresentation="method 'OpenLink'">
+            <startOffsets>
+              <option value="1371" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1403" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
