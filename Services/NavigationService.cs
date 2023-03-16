@@ -27,7 +27,7 @@ public class NavigationService : ObservableObject, INavigationService
         }
     }
 
-    public NavigationService(Func<Type, object, ViewModel> viewModelFactory)
+    public NavigationService(Func<Type, object?, ViewModel> viewModelFactory)
     {
         _viewModelFactory = viewModelFactory;
     }
