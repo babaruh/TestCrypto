@@ -3,12 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestCrypto"
         xmlns:convertors="clr-namespace:TestCrypto.Convertors"
         mc:Ignorable="d">
     <UserControl.Resources>
-        <convertors:DoubleToFormattedStringWithCommaConverter x:Key="DoubleToFormattedStringWithCommaConverter"/>
-        <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
+        <convertors:NumberFormatter x:Key="NumberFormatter"/>
     </UserControl.Resources>
     
     <Grid>
@@ -33,10 +31,10 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Trade Volume in 24H" Width="15*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TradeVolume24hBtc, 
-                                    Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                    Converter={StaticResource NumberFormatter}}" />
                 <DataGridTextColumn Header="Normalized" Width="15*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TradeVolume24hBtcNormalized, 
-                                    Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                    Converter={StaticResource NumberFormatter}}" />
                 <DataGridTextColumn Header="Trust Score" Width="7*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TrustScore}" />
                 <DataGridTextColumn Header="Country" Width="10*" CellStyle="{StaticResource CellStyle}"

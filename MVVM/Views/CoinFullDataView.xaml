@@ -6,8 +6,8 @@
         xmlns:convertors="clr-namespace:TestCrypto.Convertors"
         mc:Ignorable="d">
     <UserControl.Resources>
-        <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
-        <convertors:DecimalToFormattedPercentageStringConvertor x:Key="DecimalToFormattedPercentageStringConvertor" />
+        <convertors:NumberFormatter x:Key="NumberFormatter"/>
+        <convertors:PercentageFormatter x:Key="PercentageFormatter" />
     </UserControl.Resources>
     
     
@@ -25,7 +25,7 @@
             <TextBlock Text="Price: " Margin="20 0 0 0" FontWeight="Bold" 
                        Style="{StaticResource PrimaryTextStyle}"/>
             <TextBlock Text="{Binding CoinFullData.MarketData.CurrentPrice[usd], 
-                       Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" 
+                       Converter={StaticResource NumberFormatter}}" 
                        Style="{StaticResource PrimaryTextStyle}"
                        Margin="0"/>
         </StackPanel>
@@ -79,19 +79,19 @@
                                     <TextBlock Text="Market Cap:" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.MarketCaps[usd], 
-                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                               Converter={StaticResource NumberFormatter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" Margin="5">
                                     <TextBlock Text="Total Volume:" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.TotalVolumes[usd], 
-                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                               Converter={StaticResource NumberFormatter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" Margin="5">
                                     <TextBlock Text="Circulating Supply:" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.CirculatingSupply, 
-                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                               Converter={StaticResource NumberFormatter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Vertical" Margin="5">
                                     <TextBlock Text="Popularity:" Style="{StaticResource PrimaryTextStyle}" />
@@ -102,25 +102,25 @@
                                     <TextBlock Text="All time high:" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.AllTimeHighs[usd], 
-                                               Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                               Converter={StaticResource NumberFormatter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Margin="5">
                                     <TextBlock Text="Price change (1h):" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.PriceChangePercentage24h, 
-                                               Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
+                                               Converter={StaticResource PercentageFormatter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Vertical" Margin="5">
                                     <TextBlock Text="Price change (7d):" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.PriceChangePercentage7d, 
-                                               Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
+                                               Converter={StaticResource PercentageFormatter}}" />
                                 </StackPanel>
                                 <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Vertical" Margin="5">
                                     <TextBlock Text="Price change (30d):" Style="{StaticResource PrimaryTextStyle}" />
                                     <TextBlock Style="{StaticResource PrimaryTextStyle}" 
                                                Text="{Binding CoinFullData.MarketData.PriceChangePercentage30d, 
-                                               Converter={StaticResource DecimalToFormattedPercentageStringConvertor}}" />
+                                               Converter={StaticResource PercentageFormatter}}" />
                                 </StackPanel>
                             </Grid>
                         </StackPanel>
@@ -144,10 +144,10 @@
                                                             Width="2*" Header="Market Name" Binding="{Binding Market.Name}" />
                                         <DataGridTextColumn CellStyle="{StaticResource CellStyle}" 
                                                             Width="2*" Header="Last" Binding="{Binding Last, 
-                                                            Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                                            Converter={StaticResource NumberFormatter}}" />
                                         <DataGridTextColumn CellStyle="{StaticResource CellStyle}" 
                                                             Width="3*" Header="Volume" Binding="{Binding Volume, 
-                                                            Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                                            Converter={StaticResource NumberFormatter}}" />
                                         <DataGridTextColumn Width="*" Header="Trust Score" Binding="{Binding TrustScore}" />
                                     </DataGrid.Columns>
                                     

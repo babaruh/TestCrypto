@@ -3,20 +3,20 @@ using System.Windows.Data;
 
 namespace TestCrypto.Convertors;
 
-public class DecimalToFormattedPercentageStringConvertor : IValueConverter
+public class NumberFormatter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        var percentage = (decimal)value;
-        var formattedString = $"{percentage:+0.##;-0.##;0.##}%";
-
-        return formattedString;
+        if (value is not (double or decimal)) 
+            throw new ArgumentException("Value must be double or decimal");
+        
+        return $"{value:n2}";
     }
 
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {
         var formattedString = (string)value;
-        var percentage = decimal.Parse(formattedString.Replace("%", ""));
-        return percentage;
+        var number = decimal.Parse(formattedString);
+        return number;
     }
 }

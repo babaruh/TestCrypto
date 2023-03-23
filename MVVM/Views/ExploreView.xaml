@@ -6,9 +6,9 @@
         xmlns:convertors="clr-namespace:TestCrypto.Convertors"
         mc:Ignorable="d">
     <UserControl.Resources>
-        <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
-        <convertors:NumberToFormattedStringConverter x:Key="NumberToFormattedStringConverter"/>
-        <convertors:PercentageToFormattedStringConvertor x:Key="PercentageToFormattedString"/>
+        <convertors:NumberFormatter x:Key="NumberFormatter"/>
+        <convertors:NumberScaleConverter x:Key="NumberScaleConverter"/>
+        <convertors:PercentageFormatter x:Key="PercentageFormatter"/>
     </UserControl.Resources>
    
     <Grid>
@@ -55,25 +55,25 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Price" Width="15*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding CurrentPrice, 
-                                    Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                                    Converter={StaticResource NumberFormatter}}" />
                 <DataGridTextColumn Header="1h" Width="10*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage1hInCurrency, 
-                                    Converter={StaticResource PercentageToFormattedString}}"/>
+                                    Converter={StaticResource PercentageFormatter}}"/>
                 <DataGridTextColumn Header="24h" Width="10*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage24hInCurrency, 
-                                    Converter={StaticResource PercentageToFormattedString}}"/>
+                                    Converter={StaticResource PercentageFormatter}}"/>
                 <DataGridTextColumn Header="7d" Width="10*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage7dInCurrency, 
-                                    Converter={StaticResource PercentageToFormattedString}}"/>
+                                    Converter={StaticResource PercentageFormatter}}"/>
                 <DataGridTextColumn Header="Market Cap" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding MarketCap, 
-                                    Converter={StaticResource NumberToFormattedStringConverter}}" />
+                                    Converter={StaticResource NumberScaleConverter}}" />
                 <DataGridTextColumn Header="Volume" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TotalVolume, 
-                                    Converter={StaticResource NumberToFormattedStringConverter}}" />
+                                    Converter={StaticResource NumberScaleConverter}}" />
                 <DataGridTextColumn Header="Supply" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TotalSupply, 
-                                    Converter={StaticResource NumberToFormattedStringConverter}}" />
+                                    Converter={StaticResource NumberScaleConverter}}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
