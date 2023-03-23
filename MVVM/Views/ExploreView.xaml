@@ -39,6 +39,8 @@
                               MouseAction="LeftDoubleClick"/>
             </DataGrid.InputBindings>
             <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Width="4*" CellStyle="{StaticResource CellStyle}" 
+                                    Binding="{Binding MarketCapRank}"/>
                 <DataGridTemplateColumn Header="Name" Width="22*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -54,8 +56,14 @@
                 <DataGridTextColumn Header="Price" Width="15*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding CurrentPrice, 
                                     Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
-                <DataGridTextColumn Header="Change" Width="10*" CellStyle="{StaticResource CellStyle}"
-                                    Binding="{Binding PriceChangePercentage24H, 
+                <DataGridTextColumn Header="1h" Width="10*" CellStyle="{StaticResource CellStyle}"
+                                    Binding="{Binding PriceChangePercentage1hInCurrency, 
+                                    Converter={StaticResource PercentageToFormattedString}}"/>
+                <DataGridTextColumn Header="24h" Width="10*" CellStyle="{StaticResource CellStyle}"
+                                    Binding="{Binding PriceChangePercentage24hInCurrency, 
+                                    Converter={StaticResource PercentageToFormattedString}}"/>
+                <DataGridTextColumn Header="7d" Width="10*" CellStyle="{StaticResource CellStyle}"
+                                    Binding="{Binding PriceChangePercentage7dInCurrency, 
                                     Converter={StaticResource PercentageToFormattedString}}"/>
                 <DataGridTextColumn Header="Market Cap" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding MarketCap, 

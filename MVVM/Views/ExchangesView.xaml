@@ -8,6 +8,7 @@
         mc:Ignorable="d">
     <UserControl.Resources>
         <convertors:DoubleToFormattedStringWithCommaConverter x:Key="DoubleToFormattedStringWithCommaConverter"/>
+        <convertors:NumberToFormattedStringWithCommaConverter x:Key="NumberToFormattedStringWithCommaConverter"/>
     </UserControl.Resources>
     
     <Grid>
@@ -30,9 +31,12 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Trade Volume in 24H Btc" Width="22*" CellStyle="{StaticResource CellStyle}"
-                                    Binding="{Binding TradeVolume24HBtc, 
-                                    Converter={StaticResource DoubleToFormattedStringWithCommaConverter}}" />
+                <DataGridTextColumn Header="Trade Volume in 24H" Width="15*" CellStyle="{StaticResource CellStyle}"
+                                    Binding="{Binding TradeVolume24hBtc, 
+                                    Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
+                <DataGridTextColumn Header="Normalized" Width="15*" CellStyle="{StaticResource CellStyle}"
+                                    Binding="{Binding TradeVolume24hBtcNormalized, 
+                                    Converter={StaticResource NumberToFormattedStringWithCommaConverter}}" />
                 <DataGridTextColumn Header="Trust Score" Width="7*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TrustScore}" />
                 <DataGridTextColumn Header="Country" Width="10*" CellStyle="{StaticResource CellStyle}"

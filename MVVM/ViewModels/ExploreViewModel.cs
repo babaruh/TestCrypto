@@ -1,27 +1,21 @@
-using System;
 using System.Collections.ObjectModel;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
-using Newtonsoft.Json;
-using TestCrypto.Clients;
-using TestCrypto.Clients.CoinGecko;
+using CoinGecko.Clients;
+using CoinGecko.Interfaces;
+using CoinGecko.Models;
 using TestCrypto.Core;
-using TestCrypto.MVVM.Models;
-using TestCrypto.MVVM.Views;
 using TestCrypto.Services;
 
 namespace TestCrypto.MVVM.ViewModels;
 
 public class ExploreViewModel : Core.ViewModel
 {
-    private readonly CoinsClient _coinsClient;
+    private readonly ICoinGeckoClient _coinsClient;
     private INavigationService _navigation;
-    private ObservableCollection<CoinMarket> _coinMarkets;
-    private CoinMarket _selectedCoinMarket;
+    private ObservableCollection<CoinGeckoMarket> _coinMarkets;
+    private CoinGeckoMarket _selectedCoinMarket;
 
-    public ObservableCollection<CoinMarket> CoinMarkets
+    public ObservableCollection<CoinGeckoMarket> CoinMarkets
     {
         get => _coinMarkets;
         private set
@@ -31,7 +25,7 @@ public class ExploreViewModel : Core.ViewModel
         }
     }
 
-    public CoinMarket SelectedCoinMarket
+    public CoinGeckoMarket SelectedCoinMarket
     {
         get => _selectedCoinMarket;
         set
@@ -59,8 +53,8 @@ public class ExploreViewModel : Core.ViewModel
         NavigateCoinFullDataViewCommand = 
             new RelayCommand(NavigateCoinFullDataView, _ => true); 
         
-        _coinsClient = new CoinsClient(new HttpClient(), new JsonSerializerSettings());
-        _coinMarkets = new ObservableCollection<CoinMarket>();
+        _coinsClient = new CoinGeckoClient();
+        _coinMarkets = new ObservableCollection<CoinGeckoMarket>();
         LoadCoinMarkets();
     }
     
@@ -74,9 +68,8 @@ public class ExploreViewModel : Core.ViewModel
     
     private async Task LoadCoinMarkets()
     {
-        var cryptoCurrencies = await _coinsClient.GetCoinMarkets("usd");
-    
-        foreach (var currency in cryptoCurrencies) 
-            CoinMarkets.Add(currency);
+        var cryptoCurrencies = await _coinsClient.GetMarketsAsync("usd", null, null, null, null, 10, true, "1h,24h,7d");
+
+        CoinMarkets = new ObservableCollection<CoinGeckoMarket>(cryptoCurrencies);
     }
 }

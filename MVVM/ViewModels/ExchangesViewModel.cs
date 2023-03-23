@@ -1,27 +1,24 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Input;
+using CoinGecko.Clients;
+using CoinGecko.Interfaces;
+using Console;
 using Newtonsoft.Json;
-using TestCrypto.Clients.CoinGecko;
 using TestCrypto.Core;
-using TestCrypto.MVVM.Models;
-using TestCrypto.Services;
 
 namespace TestCrypto.MVVM.ViewModels;
 
 public class ExchangesViewModel : Core.ViewModel
 {
-    private ObservableCollection<Exchange> _exchanges;
-    private readonly ExchangesClient _exchangesClient;
+    private ObservableCollection<CoinGeckoExchange> _exchanges;
+    private readonly ICoinGeckoClient _exchangesClient;
     private readonly RelayCommand _openLinkCommand;
-    private Exchange _selectedExchange;
+    private CoinGeckoExchange _selectedExchange;
 
     public ICommand OpenLinkCommand => _openLinkCommand;
     
-    public ObservableCollection<Exchange> Exchanges
+    public ObservableCollection<CoinGeckoExchange> Exchanges
     {
         get => _exchanges;
         set
@@ -31,7 +28,7 @@ public class ExchangesViewModel : Core.ViewModel
         }
     }
 
-    public Exchange SelectedExchange
+    public CoinGeckoExchange SelectedExchange
     {
         get => _selectedExchange;
         set
@@ -43,8 +40,8 @@ public class ExchangesViewModel : Core.ViewModel
 
     public ExchangesViewModel()
     {
-        _exchangesClient = new ExchangesClient(new HttpClient(), new JsonSerializerSettings());
-        _exchanges = new ObservableCollection<Exchange>();
+        _exchangesClient = new CoinGeckoClient();
+        _exchanges = new ObservableCollection<CoinGeckoExchange>();
         LoadExchanges();
 
         _openLinkCommand = new RelayCommand(OpenLink, _ => true);
@@ -52,10 +49,9 @@ public class ExchangesViewModel : Core.ViewModel
     
     private async Task LoadExchanges()
     {
-        var cryptoCurrencies = await _exchangesClient.GetExchanges();
+        var exchanges = await _exchangesClient.GetExchangesAsync(null, 10);
 
-        foreach (var currency in cryptoCurrencies) 
-            Exchanges.Add(currency);
+        Exchanges = new ObservableCollection<CoinGeckoExchange>(exchanges);
     }
 
     private static void OpenLink(object parameter)

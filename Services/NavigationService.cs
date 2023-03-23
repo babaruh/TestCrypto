@@ -1,6 +1,4 @@
-using System;
 using TestCrypto.Core;
-using TestCrypto.MVVM.ViewModels;
 
 namespace TestCrypto.Services;
 

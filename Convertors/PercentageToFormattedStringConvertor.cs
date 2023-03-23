@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Windows.Data;
 
@@ -8,7 +7,7 @@ public class PercentageToFormattedStringConvertor : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        var percentage = (double)value;
+        var percentage = (decimal)value;
         var formattedString = $"{percentage:+0.##;-0.##;0.##}%";
 
         return formattedString;

@@ -5,6 +5,7 @@
         <TargetFramework>net7.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 
     <ItemGroup>
@@ -39,6 +40,11 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
       <PackageReference Include="System.Reactive" Version="5.0.0" />
+      <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="MVVM\Models" />
     </ItemGroup>
 
 </Project>

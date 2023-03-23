@@ -4,10 +4,71 @@
     <projectFile>TestCrypto.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52003ff2-9b7b-40a5-bb93-48250cc3403f" name="Changes" comment="Fix: remove code duplication, make code cleaner">
+    <list default="true" id="52003ff2-9b7b-40a5-bb93-48250cc3403f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestCrypto/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestCrypto/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NunitoFont/Nunito-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/archcrypto-logo.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/archcrypto-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/archcrypto-logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/archcrypto-logo.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/book.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/book.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/envelope.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/envelope.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clients/CoinGecko/BaseApiClient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clients/CoinGecko/CoinsClient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clients/CoinGecko/ExchangesClient.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convertors/DecimalToFormattedPercentageStringConvertor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convertors/DoubleToFormattedStringWithCommaConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convertors/NumberToFormattedStringConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convertors/NumberToFormattedStringWithCommaConverter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Convertors/PercentageToFormattedStringConvertor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/ObservableObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/RelayCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/ViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/CoinFullData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/CoinMarket.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/Exchange.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/Links.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/Market.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/MarketData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/ReposUrl.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Models/Ticker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/CoinFullDataViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/ExchangesViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/ExploreViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/MainWindowViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/ViewModels/SupportViewModel.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/CoinFullDataView.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/CoinFullDataView.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExchangesView.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExchangesView.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/ExploreView.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/MainWindow.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/SupportView.xaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MVVM/Views/SupportView.xaml.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/NavigationService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCrypto.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCrypto.csproj.DotSettings.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestCrypto.sln" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +79,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c2a5ac5b8ebc930b1efe2036f446c3151084c79bab3c067f6d081f43bbd/Process.Windows.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5a797ca92a578f6e5ea8cf99e224acee2df4fb7cfbfb0ed1f34a1685a4ddae4/XamlReader.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/hotso/RiderProjects/TestCrypto/App.xaml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/hotso/RiderProjects/TestCrypto/Convertors/DecimalToFormattedPercentageStringConvertor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/hotso/RiderProjects/TestCrypto/MVVM/Views/ExploreView.xaml.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -93,6 +155,7 @@
       <workItem from="1678635187490" duration="6540000" />
       <workItem from="1678651520422" duration="1207000" />
       <workItem from="1678882445683" duration="5617000" />
+      <workItem from="1678954047796" duration="3473000" />
     </task>
     <task id="LOCAL-00001" summary="Fix: remove code duplication, make code cleaner">
       <created>1678887314883</created>
@@ -101,7 +164,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678887314883</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix: remove unused method from ExploreView.xaml.cs">
+      <created>1678954175304</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678954175304</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix: small fix of Convertors and Navigation">
+      <created>1678954503501</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678954503501</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,20 +189,22 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Fix: remove code duplication, make code cleaner" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix: remove code duplication, make code cleaner" />
+    <MESSAGE value="Fix: remove unused method from ExploreView.xaml.cs" />
+    <MESSAGE value="Fix: small fix of Convertors and Navigation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix: small fix of Convertors and Navigation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/MVVM/ViewModels/CoinFullDataViewModel.cs</url>
-          <line>57</line>
+          <line>56</line>
           <properties documentPath="C:\Users\hotso\RiderProjects\TestCrypto\MVVM\ViewModels\CoinFullDataViewModel.cs" initialLine="57" containingFunctionPresentation="method 'OpenLink'">
             <startOffsets>
-              <option value="1371" />
+              <option value="1349" />
             </startOffsets>
             <endOffsets>
-              <option value="1403" />
+              <option value="1381" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />

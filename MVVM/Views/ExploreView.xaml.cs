@@ -1,8 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using TestCrypto.MVVM.Models;
-using TestCrypto.MVVM.ViewModels;
+﻿using System.Windows.Controls;
 
 namespace TestCrypto.MVVM.Views;
 

@@ -1,25 +1,23 @@
-using System;
 using System.Diagnostics;
-using System.Net.Http;
 using System.Windows.Input;
-using Newtonsoft.Json;
-using TestCrypto.Clients.CoinGecko;
+using CoinGecko.Clients;
+using CoinGecko.Interfaces;
+using CoinGecko.Models;
 using TestCrypto.Core;
-using TestCrypto.MVVM.Models;
 
 namespace TestCrypto.MVVM.ViewModels;
 
 public class CoinFullDataViewModel : Core.ViewModel
 {
     private readonly string _id;
-    private readonly CoinsClient _coinsClient;
+    private readonly ICoinGeckoClient _coinsClient;
     private readonly RelayCommand _openLinkCommand;
-    private Ticker _selectedTicker;
-    private CoinFullData _coinFullData;
+    private CoinGeckoTicker _selectedTicker;
+    private CoinGeckoAssetDetails _coinFullData;
 
     public ICommand OpenLinkCommand => _openLinkCommand;
     
-    public Ticker SelectedTicker
+    public CoinGeckoTicker SelectedTicker
     {
         get => _selectedTicker;
         set
@@ -32,13 +30,13 @@ public class CoinFullDataViewModel : Core.ViewModel
     public CoinFullDataViewModel(string id)
     {
         _id = id;
-        _coinsClient = new(new HttpClient(), new JsonSerializerSettings());
+        _coinsClient = new CoinGeckoClient();
         LoadCoinFullData();
         
         _openLinkCommand = new RelayCommand(OpenLink, _ => true);
     }
 
-    public CoinFullData CoinFullData
+    public CoinGeckoAssetDetails CoinFullData
     {
         get => _coinFullData;
         set
@@ -50,7 +48,7 @@ public class CoinFullDataViewModel : Core.ViewModel
 
     private async void LoadCoinFullData()
     {
-        CoinFullData = await _coinsClient.GetAllCoinDataWithId(_id);
+        CoinFullData = await _coinsClient.GetAssetDetailsAsync(_id, null, true, true, null, null, true);
     }
 
     private static void OpenLink(object parameter)
