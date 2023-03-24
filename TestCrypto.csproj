@@ -37,8 +37,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="C1.WPF.Sparkline" Version="6.0.20223.392" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+      <PackageReference Include="Syncfusion.SfChart.WPF" Version="21.1.35" />
       <PackageReference Include="System.Reactive" Version="5.0.0" />
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     </ItemGroup>

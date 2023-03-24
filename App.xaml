@@ -1,7 +1,6 @@
 ﻿<Application x:Class="TestCrypto.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TestCrypto"
              xmlns:views="clr-namespace:TestCrypto.MVVM.Views"
              xmlns:viewModels="clr-namespace:TestCrypto.MVVM.ViewModels">
     
@@ -44,7 +43,7 @@
         <Style x:Key="CellStyle" TargetType="DataGridCell">
             <Setter Property="Foreground" Value="{StaticResource ForegroundColor}"/>
             <Setter Property="FontFamily" Value="Nunito"/>
-            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Regular"/>
         </Style>
             

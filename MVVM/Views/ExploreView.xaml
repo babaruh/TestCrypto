@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:convertors="clr-namespace:TestCrypto.Convertors"
+        xmlns:chart="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"
         mc:Ignorable="d">
     <UserControl.Resources>
         <convertors:NumberFormatter x:Key="NumberFormatter"/>
@@ -31,7 +32,7 @@
         </Grid>        
         
         <DataGrid Grid.Row="1" ItemsSource="{Binding CoinMarkets}" 
-                  SelectedItem="{Binding SelectedCoinMarket}"
+                  SelectedItem="{Binding SelectedCoinMarket}" Margin="5 0"
                   Style="{StaticResource DataGridStyle}">
             <DataGrid.InputBindings>
                 <MouseBinding Command="{Binding NavigateCoinFullDataViewCommand}" 
@@ -56,24 +57,31 @@
                 <DataGridTextColumn Header="Price" Width="15*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding CurrentPrice, 
                                     Converter={StaticResource NumberFormatter}}" />
-                <DataGridTextColumn Header="1h" Width="10*" CellStyle="{StaticResource CellStyle}"
+                <DataGridTextColumn Header="1h" Width="6*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage1hInCurrency, 
                                     Converter={StaticResource PercentageFormatter}}"/>
-                <DataGridTextColumn Header="24h" Width="10*" CellStyle="{StaticResource CellStyle}"
+                <DataGridTextColumn Header="24h" Width="6*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage24hInCurrency, 
                                     Converter={StaticResource PercentageFormatter}}"/>
-                <DataGridTextColumn Header="7d" Width="10*" CellStyle="{StaticResource CellStyle}"
+                <DataGridTextColumn Header="7d" Width="6*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding PriceChangePercentage7dInCurrency, 
                                     Converter={StaticResource PercentageFormatter}}"/>
-                <DataGridTextColumn Header="Market Cap" Width="12*" CellStyle="{StaticResource CellStyle}"
+                <DataGridTextColumn Header="Market Cap" Width="9*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding MarketCap, 
                                     Converter={StaticResource NumberScaleConverter}}" />
                 <DataGridTextColumn Header="Volume" Width="12*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TotalVolume, 
                                     Converter={StaticResource NumberScaleConverter}}" />
-                <DataGridTextColumn Header="Supply" Width="12*" CellStyle="{StaticResource CellStyle}"
+                <DataGridTextColumn Header="Supply" Width="6*" CellStyle="{StaticResource CellStyle}"
                                     Binding="{Binding TotalSupply, 
                                     Converter={StaticResource NumberScaleConverter}}" />
+                <DataGridTemplateColumn Header="Last 7 days" Width="20*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <chart:SfLineSparkline Height="27" ItemsSource="{Binding SparklineIn7d.Price}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
