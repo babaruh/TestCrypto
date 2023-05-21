@@ -18,11 +18,11 @@ public class CoinGeckoAssetDetails
     public string AssetPlatformId { get; set; } = string.Empty;
     
     // Smart contract addresses on different platforms
-    public Dictionary<string, string> Platforms { get; set; } = new Dictionary<string, string>();
+    public Dictionary<string, string> Platforms { get; set; } = new();
     
     // Platform details
     [JsonProperty("detail_platforms")]
-    public Dictionary<string, CoinGeckoPlatform> PlatformDetails { get; set; } = new Dictionary<string, CoinGeckoPlatform>();
+    public Dictionary<string, CoinGeckoPlatform> PlatformDetails { get; set; } = new();
     
     // Block generation time
     [JsonProperty("block_time_in_minutes")]
@@ -44,10 +44,10 @@ public class CoinGeckoAssetDetails
     public IEnumerable<string> AdditionalNotice { get; set; } = Array.Empty<string>();
     
     // Name in different languages
-    public Dictionary<string, string> Localization { get; set; } = new Dictionary<string, string>();
+    public Dictionary<string, string> Localization { get; set; } = new();
      
     // Description in different languages
-    public Dictionary<string, string> Description { get; set; } = new Dictionary<string, string>();
+    public Dictionary<string, string> Description { get; set; } = new();
     
     // Links
     public CoinGeckoLinks Links { get; set; } = null!;

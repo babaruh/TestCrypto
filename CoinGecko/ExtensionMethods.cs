@@ -1,4 +1,4 @@
-namespace CoinGecko.Interfaces;
+namespace CoinGecko;
 
 public static class ExtensionMethods
 {

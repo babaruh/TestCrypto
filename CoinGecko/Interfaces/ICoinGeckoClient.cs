@@ -1,5 +1,4 @@
 using CoinGecko.Models;
-using Console;
 
 namespace CoinGecko.Interfaces;
 
@@ -9,7 +8,7 @@ public interface ICoinGeckoClient
     Task<string> PingAsync();
 
     // Get coins market data
-    Task<IEnumerable<CoinGeckoMarket>> GetMarketsAsync(
+    Task<IEnumerable<CoinGeckoMarket>?> GetMarketsAsync(
         string quoteAsset, 
         IEnumerable<string>? assetIds = null,
         string? category = null, 
@@ -19,7 +18,7 @@ public interface ICoinGeckoClient
         bool? sparkline = null, 
         string priceChangePercentages = null);
 
-    Task<CoinGeckoAssetDetails> GetAssetDetailsAsync(
+    Task<CoinGeckoAssetDetails?> GetAssetDetailsAsync(
         string assetId, 
         bool? localization = null, 
         bool? tickers = null, 
@@ -28,7 +27,7 @@ public interface ICoinGeckoClient
         bool? developerData = null, 
         bool? sparkline = null);
 
-    Task<IEnumerable<CoinGeckoExchange>> GetExchangesAsync(
+    Task<IEnumerable<CoinGeckoExchange>?> GetExchangesAsync(
         int? page = null,
         int? pageSize = null);
 }

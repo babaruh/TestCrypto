@@ -1,6 +1,5 @@
 using CoinGecko.Interfaces;
 using CoinGecko.Models;
-using Console;
 using Newtonsoft.Json;
 
 namespace CoinGecko.Clients;
@@ -14,10 +13,10 @@ public class CoinGeckoClient : ICoinGeckoClient
         var parameters = new Dictionary<string, object>();
         var result = await GetAsync<Dictionary<string, string>>(CreateUrl(GetUrl("ping"), parameters));
 
-        return result.First(k => k.Key == "gecko_says").Value;
+        return result!.First(k => k.Key == "gecko_says").Value;
     }
 
-    public async Task<IEnumerable<CoinGeckoMarket>> GetMarketsAsync(
+    public async Task<IEnumerable<CoinGeckoMarket>?> GetMarketsAsync(
         string quoteAsset,
         IEnumerable<string>? assetIds = null, 
         string? category = null, 
@@ -40,7 +39,7 @@ public class CoinGeckoClient : ICoinGeckoClient
         return await GetAsync<IEnumerable<CoinGeckoMarket>>(CreateUrl(GetUrl("coins/markets/"), parameters));
     }
 
-    public async Task<CoinGeckoAssetDetails> GetAssetDetailsAsync(
+    public async Task<CoinGeckoAssetDetails?> GetAssetDetailsAsync(
         string assetId, 
         bool? localization = null, 
         bool? tickers = null, 
@@ -61,7 +60,7 @@ public class CoinGeckoClient : ICoinGeckoClient
         return await GetAsync<CoinGeckoAssetDetails>(CreateUrl(GetUrl("coins/" + assetId), parameters));
     }
 
-    public Task<IEnumerable<CoinGeckoExchange>> GetExchangesAsync(int? page = null, int? pageSize = null)
+    public Task<IEnumerable<CoinGeckoExchange>?> GetExchangesAsync(int? page = null, int? pageSize = null)
     {
         var parameters = new Dictionary<string, object>();
         
@@ -83,7 +82,7 @@ public class CoinGeckoClient : ICoinGeckoClient
         if (parameter == null || parameter.Count == 0)
             return new Uri(baseAddress); 
 
-        var queryString = string.Join("&", parameter.Select(p => $"{Uri.EscapeDataString(p.Key)}={Uri.EscapeDataString(p.Value.ToString())}"));
+        var queryString = string.Join("&", parameter.Select(p => $"{Uri.EscapeDataString(p.Key)}={Uri.EscapeDataString(p.Value.ToString() ?? string.Empty)}"));
         
         var fullAddress = $"{baseAddress}?{queryString}";
         
@@ -91,15 +90,16 @@ public class CoinGeckoClient : ICoinGeckoClient
     }
     
     // Performs an asynchronous HTTP GET request to a given resource URI and return the deserialized data of type T
-    private static async Task<T> GetAsync<T>(Uri resourceUri)
+    private static async Task<T?> GetAsync<T>(Uri resourceUri)
     {
         if (resourceUri == null)
             throw new ArgumentNullException(nameof(resourceUri));
 
         using var client = new HttpClient();
-    
-        var response = await client.GetAsync(resourceUri);
+        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36 Edg/93.0.961.38");
 
+        var response = await client.GetAsync(resourceUri);
+        
         if (response.IsSuccessStatusCode)
         {
             var content = await response.Content.ReadAsStringAsync();
@@ -113,8 +113,6 @@ public class CoinGeckoClient : ICoinGeckoClient
     }
     
     // Get url for an endpoint
-    private string GetUrl(string endpoint)
-    {
-        return _baseAddress.AppendPath(endpoint);
-    }
+    private string GetUrl(string endpoint) => 
+        _baseAddress.AppendPath(endpoint);
 }

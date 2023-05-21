@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Console;
+namespace CoinGecko.Models;
 
 /// <summary>
 /// Exchange info
